@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require "rbshodan"
+require "shodanz"
 require "chart_js"
 
 module Top10
@@ -14,4 +14,15 @@ module Top10
   end
 end
 
-result = Top10.check("apache")
+results = Top10.check("apache")
+
+ChartJS.bar do
+  file "top_10_apache.html"
+  data do
+    labels results.keys
+    dataset "Countries" do
+      color :random
+      data results.values
+    end 
+  end
+end
