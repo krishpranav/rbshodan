@@ -1,12 +1,12 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'shodanz'
+require 'rbshodan'
 require 'command_lion'
 require 'yaml'
 require 'pry'
 
 module Top10
   
-  @rest_api = Shodanz.api.rest.new
+  @rest_api = Rbshodan.api.rest.new
   
   def self.check(product)
     begin
