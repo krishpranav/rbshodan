@@ -20,4 +20,13 @@ Async do
                 Async do
                     resp = client.rest_api.honeypot_score(ip).wait
                     binding.pry if resp.nil?
-                    
+                    puts "#{ip} has a #{resp *100}% chance of being a hoenypot "
+                rescue Rbshodan::Errors::RateLimited
+                    sleep 1
+                rescue => error
+                    binding.pry
+                end
+            end
+        end
+    end
+end
