@@ -5,3 +5,7 @@ trap "SIGINT" do
     exit 0
 end
 
+streaming_api = Rbshodan.api.streaming.new
+
+stats = Hash.new(0)
+
