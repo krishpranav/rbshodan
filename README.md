@@ -9,7 +9,7 @@ $ gem install rbshodan
 ```
 
 # Usage
-```
+```ruby
 require "rbshodan"
 
 client = rbshodan.client.new(key: "YOUR_API_KEY")
@@ -18,7 +18,7 @@ client = rbshodan.client.new(key: "YOUR_API_KEY")
 - shodan search methods
 
 - host search
-```
+```ruby
 client.host_search("mongodb")
 client.host_search("nginx")
 client.host_search("apache", after: "1/12/16")
