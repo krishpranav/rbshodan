@@ -10,3 +10,5 @@ stats = Hash.new(0)
 
 ports    = [21, 22, 80, 443]
 services = ['ftp', 'ssh', 'http', 'https']
+
+ports_with_service_names = ports.zip(services)
