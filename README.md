@@ -50,19 +50,6 @@ client.host_search("ssh", port: 22, page: 2)
 client.host_search("ftp", port: 21, facets: { link: "Ethernet or modem" })
 ```
 
-#### Search Shodan without Results
-
-This method behaves identical to `host_search` with the only difference that this method does not return any host results, it only returns the total number of results that matched the query and any facet information that was requested. As a result this method does not consume query credits.
-
-```ruby
-client.host_count("apache")
-client.host_count("apache", country: "US")
-client.host_count("apache", country: "US", state: "MI")
-client.host_count("apache", country: "US", state: "MI", city: "Detroit")
-client.host_count("nginx",  facets: { country: 5 })
-client.host_count("apache", facets: { country: 5 })
-```
-
 #### Scan Targets
 
 Use this method to request Shodan to crawl an IP or netblock.
@@ -92,48 +79,6 @@ client.community_queries(sort: "votes")
 client.community_queries(sort: "votes", page: 2)
 client.community_queries(order: "asc")
 client.community_queries(order: "desc")
-```
-
-#### Search Community Queries
-
-Use this method to search the directory of search queries that users have saved in Shodan.
-
-```ruby
-client.search_for_community_query("the best")
-client.search_for_community_query("the best", page: 2)
-```
-
-#### Popular Community Query Tags
-
-Use this method to obtain a list of popular tags for the saved search queries in Shodan.
-
-```ruby
-client.popular_query_tags
-client.popular_query_tags(20)
-```
-
-#### Protocols
-
-This method returns an object containing all the protocols that can be used when launching an Internet scan.
-
-```ruby
-client.protocols
-```
-
-#### Ports
-
-This method returns a list of port numbers that the Shodan crawlers are looking for.
-
-```ruby
-client.ports
-```
-
-#### Account Profile
-
-Returns information about the Shodan account linked to this API key.
-
-```ruby
-client.profile
 ```
 
 #### DNS Lookup
@@ -176,26 +121,6 @@ Calculates a honeypot probability score ranging from 0 (not a honeypot) to 1.0 (
 
 ```ruby
 client.honeypot_score('8.8.8.8')
-```
-
-#### API Plan Information
-
-```ruby
-client.info
-```
-
-### Streaming API
-
-The Streaming API is an HTTP-based service that returns a real-time stream of data collected by Shodan. Refer to the [Streaming API](https://developer.shodan.io/api/stream) documentation for more ideas on how to use it.
-#### Banners
-
-This stream provides ALL of the data that Shodan collects. Use this stream if you need access to everything and/ or want to store your own Shodan database locally. If you only care about specific ports, please use the Ports stream.
-
-```ruby
-client.banners do |data|
-  # do something with banner data
-  puts data
-end
 ```
 
 #### Banners Filtered by ASN
