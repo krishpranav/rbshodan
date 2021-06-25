@@ -18,3 +18,12 @@ module Top10
         end
     end
 end
+
+
+CommandLion::App.run do
+    name "Top 10 Countires Running a Product Using Shodan"
+  
+    command :product do
+      description "Search for this given product."
+      type :string
+      flag "--product"
