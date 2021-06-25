@@ -14,3 +14,11 @@ end
 
 puts "Sequential took #{Time.now.sec - started} seconds"
 
+started = Time.now.sec
+Async do
+    webservers.each do |webserver|
+        client.rest_api.host_search(webserver)
+        puts webserver
+    end
+end
+puts "Asyncronous took #{Time.now.sec - started} seconds"
