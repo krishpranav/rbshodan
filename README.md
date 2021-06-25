@@ -1,5 +1,5 @@
 # rbshodan
-A shodan client built in ruby
+A shodan library written in ruby
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
 
