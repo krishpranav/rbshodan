@@ -1,0 +1,5 @@
+require "bundler/setup"
+require "async/rspec"
+require "rbshodan"
+require "pry"
+require "readline"
