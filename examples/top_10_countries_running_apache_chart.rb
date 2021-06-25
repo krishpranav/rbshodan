@@ -13,3 +13,5 @@ module Top10
     end
   end
 end
+
+result = Top10.check("apache")
