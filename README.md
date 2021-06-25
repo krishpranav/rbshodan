@@ -32,9 +32,9 @@ client.host_search("ftp", port: 21, facets: { link: "Ethernet or modem" })
 Returns all services that have been found on the given host IP.
 
 ```ruby
-client.host("8.8.8.8")                
-client.host("8.8.8.8", history: true) 
-client.host("8.8.8.8", minify: true)  
+client.host("0.0.0.0")                
+client.host("0.0.0.0", history: true) 
+client.host("0.0.0.0", minify: true)  
 ```
 
 #### Host Search
@@ -55,7 +55,7 @@ client.host_search("ftp", port: 21, facets: { link: "Ethernet or modem" })
 Use this method to request Shodan to crawl an IP or netblock.
 
 ```ruby
-client.scan("8.8.8.8")
+client.scan("0.0.0.0")
 ```
 
 #### Crawl Internet for Port
@@ -120,7 +120,7 @@ client.my_ip
 Calculates a honeypot probability score ranging from 0 (not a honeypot) to 1.0 (is a honeypot).
 
 ```ruby
-client.honeypot_score('8.8.8.8')
+client.honeypot_score('0.0.0.0')
 ```
 
 #### Banners Filtered by ASN
@@ -178,9 +178,7 @@ client.alert("HKVGAIRWD79Z7W2T") do |data|
 end
 ```
 
-### Exploits API
-
-The Exploits API provides access to several exploit/ vulnerability data sources. Refer to the [Exploits API](https://developer.shodan.io/api/exploits/rest) documentation for more ideas on how to use it.
+# Exploits
 
 #### Search
 
