@@ -9,3 +9,10 @@ streaming_api = Rbshodan.api.streaming.new
 
 stats = Hash.new(0)
 
+streaming_api.banners do |banner|
+    product = banner['product']
+
+    next if product.nil?
+
+    puts "#{stats[product] += 1} #{product}"
+end
