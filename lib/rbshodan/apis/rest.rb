@@ -23,4 +23,8 @@ module Rbshodan
 
                 false
             end
+
+            def host(ip, **params)
+                get("shodan/host/#{ip}", **params)
+            end
             
