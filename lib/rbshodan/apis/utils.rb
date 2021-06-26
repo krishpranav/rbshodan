@@ -9,4 +9,10 @@ module Rbshodan
 
                 async_get(path, **params)
             end
+
+            def post(path, body: nil, **params)
+                return sync_post(path, params: params, body: body) unless Async::Task.current?
+
+                async_post(path, params: params, body: body)
+            end
             
