@@ -27,4 +27,13 @@ module Rbshodan
                     end
                 end
             end
+
+            def turn_into_query(**params)
+                filters = params.reject { |key, _| key == :query }
+                filters.each do |key, value|
+                    params[:query] << " #{key}:#{value}"
+                end
+
+                params.select { |key, _| key == :query }
+            end
             
