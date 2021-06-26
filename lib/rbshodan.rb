@@ -7,3 +7,14 @@ require 'shodanz/api'
 require 'shodanz/client'
 
 Async.logger.level = 4
+
+
+module Rbshodan
+    def self.api
+        API
+    end
+
+    def self.client
+        Client
+    end
+end
