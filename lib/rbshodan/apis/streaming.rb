@@ -17,4 +17,8 @@ module Rbshodan
 
                 warn 'No key has been found or provided!!!' unless key?
             end
+
+            def key?
+                return true if @key; false
+            end
             
