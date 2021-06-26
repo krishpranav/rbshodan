@@ -15,4 +15,16 @@ module Rbshodan
 
                 async_post(path, params: params, body: body)
             end
+
+            def slurp_stream(path, **params)
+                if Async::Task.current?
+                    async_slurp_stream(path, **params) do |result|
+                        yield result
+                    end
+                else
+                    sync_slurp_stream(path, **params) do |result|
+                        yield result
+                    end
+                end
+            end
             
